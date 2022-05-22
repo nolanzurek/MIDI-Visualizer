@@ -26,14 +26,14 @@ color backgroundColor = #222222;
 //IO and dependencies
 
 //path of the MIDI file used to generate the visualization
-String midiPath = "C:/Users/nolan/Downloads/Aeolian.mid";
+String midiPath = "C:/path/to/myMidiFile.mid";
 //path of fluidsynth executable
 //if fluidsynth is an environment variable, this can simply be "fluidsynth"
-String fluidSynthExecutablePath = "C:/Users/nolan/Downloads/fluidsynth-2.2.6-win10-x64/bin/fluidsynth.exe";
+String fluidSynthExecutablePath = "C:/path/to/fluidsynth.exe";
 //path of the temporary audio generated from the MIDI file
-String audioOutputPath = "C:/Users/nolan/OneDrive/Documents/Processing/MIDI_Visualizer/output.wav";
+String audioOutputPath = "C:/path/to/output.wav";
 //path to soundfront library used to create the audio
-String soundFrontPath = "C:/Users/nolan/OneDrive/Documents/Processing/MIDI_Visualizer/data/Nice-Steinway-Lite-v3.0.sf2";
+String soundFrontPath = "C:/path/to/mySoundFrontFile.sf2";
 
 //GLOBAL VARIABLES
 //do not touch these!
