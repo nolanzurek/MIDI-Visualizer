@@ -37,7 +37,7 @@ String soundFrontPath = "C:/Users/nolan/OneDrive/Documents/Processing/MIDI_Visua
 
 //GLOBAL VARIABLES
 //do not touch these!
-ArrayList<Note> notes = new ArrayList<Note>();  //contains all Note objects dervied from MIDI file
+ArrayList<Note> notes = new ArrayList<Note>();  //contains all Note objects derived from MIDI file
 String[] notesLookup = {"C", "C\u266F", "D", "E\u266D", "E", "F", "F\u266F", "G", "A\u266D", "A", "B\u266D", "B"};
 boolean tempoFlag = true;
 double currentTick = 0;  //current tick in the player
@@ -291,7 +291,7 @@ void draw() {
         text(notesLookup[(cur.pitch)%12], x+w+5, y, width, h);
       }
       
-      //othwise, the note is not drawn and the rest of the loop is skipped
+      //otherwise, the note is not drawn and the rest of the loop is skipped
     } else if (cur.startTick > currentTick + visibleTickRadius) {
       
       //if the notes are in sorted order, we can stop drawing notes once we reach the
