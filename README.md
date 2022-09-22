@@ -22,6 +22,8 @@ The following settings can be adjusted by the user to fit their needs. These are
 - 'fps': controls the frames per second (more applicable when `renderMode` is false)
 - `backgroundColor`: controls the background color of the visualization
 
+The dimensions of the sketch window can also be changed by the user as the visualizer will compensate to the width and height of the window. However, processing will not let the width and height be bound to a variable, so the user must edit the `size` call directly in the setup block.
+
 ### I/O and dependencies
 The following are file paths to software and files that the sketch requires to run.
 - `midiPath`: the path to the MIDI file to be rendered
