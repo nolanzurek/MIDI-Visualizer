@@ -35,7 +35,7 @@ In addition, the sketch uses the Video Export processing library, which must be 
 
 ### Running from the command line
 
-For more intensive projects, it may be more efficient to run the sketch from the command line in order to take advantage of scripting. To run a processing sketch from the command line, [add Processing to your PATH](https://marketplace.visualstudio.com/items?itemName=Tobiah.language-pde#add-processing-to-path), then run the following command on windows
+For more intensive projects, it may be more efficient to run the sketch from the command line in order to take advantage of scripting. To run a processing sketch from the command line, [add Processing to your PATH](https://marketplace.visualstudio.com/items?itemName=Tobiah.language-pde#add-processing-to-path), then run the following command on windows:
 
 ```Bash
 processing-java --sketch=C:\Path\To\Sketch.pdf --run C:\Path\To\MIDI\File
