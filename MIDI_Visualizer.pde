@@ -12,10 +12,10 @@ Sequencer sequencer;
 //otherwise, the visualization will play in real time
 boolean renderMode = true;
 //if text mode is enabled, note labels will be drawn beside notes
-boolean textMode = true;
+boolean textMode = false;
 //if fifths mode is enabled, the notes will be colored along the circle of fifths
 //otherwise, they will be colored by track
-boolean fifthsMode = true;
+boolean fifthsMode = false;
 //ticks per pixel
 float TPP = 5;
 //frames per second
@@ -26,18 +26,18 @@ color backgroundColor = #222222;
 //IO and dependencies
 
 //path of the MIDI file used to generate the visualization
-String midiPath = "C:/path/to/myMidiFile.mid";
+String midiPath = "C:/Path/to/file.mid";
 //path of fluidsynth executable
 //if fluidsynth is an environment variable, this can simply be "fluidsynth"
-String fluidSynthExecutablePath = "C:/path/to/fluidsynth.exe";
+String fluidSynthExecutablePath = "C:/Path/to/fluidSynth.exe";
 //path of the temporary audio generated from the MIDI file
-String audioOutputPath = "C:/path/to/output.wav";
+String audioOutputPath = "C:/Output/path";
 //path to soundfront library used to create the audio
-String soundFrontPath = "C:/path/to/mySoundFrontFile.sf2";
+String soundFrontPath = "C:/Path/to/file.sf2";
 
 //GLOBAL VARIABLES
 //do not touch these!
-ArrayList<Note> notes = new ArrayList<Note>();  //contains all Note objects derived from MIDI file
+ArrayList<Note> notes = new ArrayList<Note>();  //contains all Note objects dervied from MIDI file
 String[] notesLookup = {"C", "C\u266F", "D", "E\u266D", "E", "F", "F\u266F", "G", "A\u266D", "A", "B\u266D", "B"};
 boolean tempoFlag = true;
 double currentTick = 0;  //current tick in the player
@@ -51,6 +51,14 @@ float visibleTickRadius;
 float h;
 
 void setup() {
+  
+  //get the file to visualize from the command line arguments
+  if(args != null) {
+    println(args.length + " args");
+    midiPath = args[0];
+  } else {
+    println("no args");
+  }
   
   //updates some processing state variables
   size(960, 540);
@@ -291,7 +299,7 @@ void draw() {
         text(notesLookup[(cur.pitch)%12], x+w+5, y, width, h);
       }
       
-      //otherwise, the note is not drawn and the rest of the loop is skipped
+      //othwise, the note is not drawn and the rest of the loop is skipped
     } else if (cur.startTick > currentTick + visibleTickRadius) {
       
       //if the notes are in sorted order, we can stop drawing notes once we reach the
@@ -329,6 +337,8 @@ void keyPressed () {
     videoExport.saveFrame();
     videoExport.setAudioFileName(audioOutputPath);
     exit();
+  } else if (keyCode == ENTER) {
+    saveFrame("IndividualFrames/" + month() + day() + hour() + minute() + second() + millis() + ".png");
   }
   
 }
